@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "babel-preset-react-native-stage-0/decorator-support"
+  ],
+  "plugins": [
+    [
+      "relay",
+      {
+        "schema": "./schema.graphql"
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-react-jsx-source"
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "react-native-relay",
+  "version": "0.1.0",
+  "devDependencies": {
+    "babel-plugin-relay": "^1.2.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest-expo": "~20.0.0",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "relay-compiler": "^1.2.0"
+  },
+  "dependencies": {
+    "native-base": "^2.3.1",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.47.0",
+    "react-relay": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "relay": "./node_modules/.bin/relay-compiler --src ./ --schema ./schema.graphql"
+  }
+}

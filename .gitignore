@@ -1,0 +1,6 @@
+/.idea/
+/.expo/
+/node_modules/
+/ios/build/Logs/*
+npm-debug.*
+config.js

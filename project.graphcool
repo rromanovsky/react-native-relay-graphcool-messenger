@@ -1,0 +1,43 @@
+# project: cj6cevil81qkn0101xxmzjg7m
+# version: 3
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type User implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String! @isUnique @defaultValue(value: "")
+  updatedAt: DateTime!
+  channels: [Channel!]! @relation(name: "ChannelOnUser")
+  email: String @isUnique
+  messages: [Message!]! @relation(name: "MessageOnUser")
+  myChannels: [Channel!]! @relation(name: "UserOwnChannels")
+  password: String
+}
+
+type Channel implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  messages: [Message!]! @relation(name: "ChannelMessages")
+  owner: User @relation(name: "UserOwnChannels")
+  recipients: [User!]! @relation(name: "ChannelOnUser")
+  updatedAt: DateTime!
+}
+
+type Message implements Node {
+  channel: Channel @relation(name: "ChannelMessages")
+  createdAt: DateTime!
+  id: ID! @isUnique
+  text: String!
+  updatedAt: DateTime!
+  user: User! @relation(name: "MessageOnUser")
+}

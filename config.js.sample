@@ -1,0 +1,1 @@
+export const graphcoolAPI = '' // "Relay API" value from `graphcool endpoints` command
