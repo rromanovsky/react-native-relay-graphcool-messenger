@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6f52da7ac9ba57bc186fb7f7b13d408e
+ * @relayHash ee6ad615f86739ce70648bf847b4e712
  */
 
 /* eslint-disable */
@@ -48,8 +48,8 @@ fragment ChannelList_viewer on Viewer {
 }
 
 fragment Channel_channel on Channel {
-  id
   title
+  updatedAt
 }
 */
 
@@ -162,6 +162,13 @@ const batch /*: ConcreteBatch*/ = {
                                 "args": null,
                                 "name": "title",
                                 "storageKey": null
+                              },
+                              {
+                                "kind": "ScalarField",
+                                "alias": null,
+                                "args": null,
+                                "name": "updatedAt",
+                                "storageKey": null
                               }
                             ]
                           }
@@ -270,7 +277,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query ChannelListPageQuery {\n  viewer {\n    ...ChannelList_viewer\n    id\n  }\n}\n\nfragment ChannelList_viewer on Viewer {\n  allChannels(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        ...Channel_channel\n        id\n      }\n    }\n    ... on ChannelConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Channel_channel on Channel {\n  id\n  title\n}\n"
+  "text": "query ChannelListPageQuery {\n  viewer {\n    ...ChannelList_viewer\n    id\n  }\n}\n\nfragment ChannelList_viewer on Viewer {\n  allChannels(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        ...Channel_channel\n        id\n      }\n    }\n    ... on ChannelConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Channel_channel on Channel {\n  title\n  updatedAt\n}\n"
 };
 
 module.exports = batch;

@@ -4,14 +4,14 @@ import { createFragmentContainer, graphql } from 'react-relay'
 
 class Channel extends Component {
   render() {
-    const { title } = this.props.channel;
-console.log(this.props.channel)
+    const { title, updatedAt } = this.props.channel;
+
     return (
       <Content>
-        <Thumbnail square size={80} source={{ uri: 'Image URL' }} />
+        <Thumbnail source={{ uri: 'Image URL' }} size={80} square />
         <Body>
           <Text>{title}</Text>
-          <Text note>123</Text>
+          <Text note>{updatedAt}</Text>
         </Body>
       </Content>
     )
@@ -20,11 +20,7 @@ console.log(this.props.channel)
 
 export default createFragmentContainer(Channel, graphql`
   fragment Channel_channel on Channel {
-    id
     title
     updatedAt
-    _recipientsMeta {
-      count
-    }
   }
 `)

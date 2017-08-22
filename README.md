@@ -3,6 +3,9 @@
 - `react-native link`
 - `cp config.js.sample config.js` and configure it according comments inside file
 
+# Run
+- `npm run ios`
+
 # Additional Info
 - `graphcool endpoints`
 - `get-graphql-schema https://api.graph.cool/relay/v1/cj6cevil81qkn0101xxmzjg7m > schema.graphql`

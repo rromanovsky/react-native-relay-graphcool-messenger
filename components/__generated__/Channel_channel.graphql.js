@@ -9,8 +9,8 @@
 /*::
 import type {ConcreteFragment} from 'relay-runtime';
 export type Channel_channel = {|
-  +id: string;
   +title: string;
+  +updatedAt: any;
 |};
 */
 
@@ -25,14 +25,14 @@ const fragment /*: ConcreteFragment*/ = {
       "kind": "ScalarField",
       "alias": null,
       "args": null,
-      "name": "id",
+      "name": "title",
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
       "args": null,
-      "name": "title",
+      "name": "updatedAt",
       "storageKey": null
     }
   ],
