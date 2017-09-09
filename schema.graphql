@@ -70,6 +70,7 @@ input AuthProviderSignupData {
 type Channel implements Node {
   createdAt: DateTime!
   id: ID!
+  image: String
   messages(filter: MessageFilter, orderBy: MessageOrderBy, skip: Int, after: String, before: String, first: Int, last: Int): MessageConnection
   owner(filter: UserFilter): User
   recipients(filter: UserFilter, orderBy: UserOrderBy, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection
@@ -166,6 +167,46 @@ input ChannelFilter {
 
   # All values not ending with the given string.
   id_not_ends_with: ID
+  image: String
+
+  # All values that are not equal to given value.
+  image_not: String
+
+  # All values that are contained in given list.
+  image_in: [String!]
+
+  # All values that are not contained in given list.
+  image_not_in: [String!]
+
+  # All values less than the given value.
+  image_lt: String
+
+  # All values less than or equal the given value.
+  image_lte: String
+
+  # All values greater than the given value.
+  image_gt: String
+
+  # All values greater than or equal the given value.
+  image_gte: String
+
+  # All values containing the given string.
+  image_contains: String
+
+  # All values not containing the given string.
+  image_not_contains: String
+
+  # All values starting with the given string.
+  image_starts_with: String
+
+  # All values not starting with the given string.
+  image_not_starts_with: String
+
+  # All values ending with the given string.
+  image_ends_with: String
+
+  # All values not ending with the given string.
+  image_not_ends_with: String
   title: String
 
   # All values that are not equal to given value.
@@ -247,6 +288,8 @@ enum ChannelOrderBy {
   createdAt_DESC
   id_ASC
   id_DESC
+  image_ASC
+  image_DESC
   title_ASC
   title_DESC
   updatedAt_ASC
@@ -254,6 +297,7 @@ enum ChannelOrderBy {
 }
 
 input CreateChannel {
+  image: String
   title: String!
   ownerId: ID
   messagesIds: [ID!]
@@ -262,6 +306,7 @@ input CreateChannel {
 }
 
 input CreateChannelInput {
+  image: String
   title: String!
   ownerId: ID
   messagesIds: [ID!]
@@ -727,6 +772,7 @@ type Message implements Node {
 }
 
 input MessagechannelChannel {
+  image: String
   title: String!
   ownerId: ID
   messagesIds: [ID!]
@@ -1030,6 +1076,7 @@ input SignupUserInput {
 
 input UpdateChannel {
   id: ID!
+  image: String
   title: String
   ownerId: ID
   messagesIds: [ID!]
@@ -1039,6 +1086,7 @@ input UpdateChannel {
 
 input UpdateChannelInput {
   id: ID!
+  image: String
   title: String
   ownerId: ID
   messagesIds: [ID!]
@@ -1197,6 +1245,7 @@ type User implements Node {
 }
 
 input UserchannelsChannel {
+  image: String
   title: String!
   ownerId: ID
   messagesIds: [ID!]
@@ -1453,6 +1502,7 @@ input UsermessagesMessage {
 }
 
 input UsermyChannelsChannel {
+  image: String
   title: String!
   messagesIds: [ID!]
   messages: [ChannelmessagesMessage!]

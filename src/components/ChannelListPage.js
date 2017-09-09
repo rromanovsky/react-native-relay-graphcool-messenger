@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Body, Button, Container, Content, Header, Icon, Left, Spinner, Text, Title } from 'native-base'
 import { QueryRenderer, graphql } from 'react-relay'
 import ChannelList from './ChannelList'
-import environment from '../Environment'
+import environment from '../../Environment'
 
 export default class extends Component {
   render() {

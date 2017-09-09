@@ -25,6 +25,7 @@ type User implements Node {
 }
 
 type Channel implements Node {
+  image: String!
   createdAt: DateTime!
   id: ID! @isUnique
   messages: [Message!]! @relation(name: "ChannelMessages")

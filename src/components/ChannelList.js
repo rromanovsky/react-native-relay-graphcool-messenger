@@ -7,13 +7,7 @@ class ChannelList extends Component {
   render() {
     return (
       <List>
-        {
-          this.props.viewer.allChannels.edges.map(({ node }) => (
-            <ListItem onPress={() => null} key={node.__id}>
-              <Channel channel={node} />
-            </ListItem>
-          ))
-        }
+        {this.props.viewer.allChannels.edges.map(({ node }) => <Channel channel={node} />)}
       </List>
     )
   }

@@ -11,5 +11,5 @@
 - `get-graphql-schema https://api.graph.cool/relay/v1/cj6cevil81qkn0101xxmzjg7m > schema.graphql`
 - `npm run relay` -> generate graphql requests (components/__generated__)
 
-# Temp
-https://standardjs.com/
+# Workflow
+https://standardjs.com
