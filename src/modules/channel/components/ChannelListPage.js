@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Content, Spinner, Text } from 'native-base'
 import { QueryRenderer, graphql } from 'react-relay'
 import ChannelList from './ChannelList'
-import relayEnvironment from '../relayEnvironment'
+import relayEnvironment from '../../../relayEnvironment'
 
 export default class extends Component {
   static navigationOptions = ({ navigation }) => ({

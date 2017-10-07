@@ -1,12 +1,12 @@
 import React from 'react'
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base'
 import { TabNavigator } from 'react-navigation'
-import ProfilePage from './components/ProfilePage'
-import ChannelsNavigator from './components/ChannelsNavigator'
+import ProfilePage from './modules/profile/components/ProfilePage'
+import ChannelsNavigator from './modules/channel/components/ChannelsNavigator'
 
 const tabs = [
   {
-    text: 'Profile',
+    text: 'profile',
     icon: 'person',
     screen: ProfilePage,
     screenKey: 'ProfilePage',

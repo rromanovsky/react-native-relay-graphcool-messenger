@@ -6,7 +6,7 @@ import { withNavigation } from 'react-navigation'
 @withNavigation
 export default class extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Profile',
+    title: 'profile',
     tabBarLabel: 'Notifications',
     headerTitleStyle : { textAlign: 'center', alignSelf:'center' },
   });
