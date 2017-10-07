@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6b137246776a093ee7159369a984710f
+ * @relayHash 82964097cda1bb8ce82c2d927bffd2ad
  */
 
 /* eslint-disable */
@@ -48,6 +48,7 @@ fragment ChannelList_viewer on Viewer {
 }
 
 fragment Channel_channel on Channel {
+  id
   image
   title
   updatedAt
@@ -285,7 +286,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query ChannelListPageQuery {\n  viewer {\n    ...ChannelList_viewer\n    id\n  }\n}\n\nfragment ChannelList_viewer on Viewer {\n  allChannels(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        ...Channel_channel\n        id\n      }\n    }\n    ... on ChannelConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Channel_channel on Channel {\n  image\n  title\n  updatedAt\n}\n"
+  "text": "query ChannelListPageQuery {\n  viewer {\n    ...ChannelList_viewer\n    id\n  }\n}\n\nfragment ChannelList_viewer on Viewer {\n  allChannels(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        ...Channel_channel\n        id\n      }\n    }\n    ... on ChannelConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Channel_channel on Channel {\n  id\n  image\n  title\n  updatedAt\n}\n"
 };
 
 module.exports = batch;

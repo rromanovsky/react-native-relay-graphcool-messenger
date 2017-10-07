@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { Body, Button, Container, Content, Header, Icon, Left, Spinner, Text, Title } from 'native-base'
+import { Container, Content, Spinner, Text } from 'native-base'
 import { QueryRenderer, graphql } from 'react-relay'
 import ChannelList from './ChannelList'
-import environment from '../../Environment'
+import relayEnvironment from '../relayEnvironment'
 
 export default class extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Chats',
+    headerTitleStyle : { textAlign: 'center', alignSelf:'center' },
+    // headerStyle:{
+    //   backgroundColor:'white',
+    // },
+  });
+
   render() {
     const query = graphql`
       query ChannelListPageQuery {
@@ -16,19 +24,9 @@ export default class extends Component {
 
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={this.props.openMenu}>
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Channels</Title>
-          </Body>
-        </Header>
         <Content>
           <QueryRenderer
-            environment={environment}
+            environment={relayEnvironment}
             query={query}
             render={({ error, props }) => {
               if (error) {
@@ -37,7 +35,7 @@ export default class extends Component {
                 return <ChannelList viewer={props.viewer} />
               }
 
-              return <Spinner color="dodgerblue"/>
+              return <Spinner color="dodgerblue" />
             }}
           />
         </Content>
